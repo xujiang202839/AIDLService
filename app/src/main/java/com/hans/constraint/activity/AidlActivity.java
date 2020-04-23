@@ -17,6 +17,11 @@ import com.hans.constraint.R;
 import com.hans.constraint.server.AdditionService;
 import com.hans.constraint.server.IAdditionService;
 
+/**
+*@创建者 xu
+*@创建时间 2020/4/23
+*@描述 开启本地程序一个service
+*/
 public class AidlActivity extends AppCompatActivity {
 
     private Button bt_num;
@@ -29,12 +34,8 @@ public class AidlActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aidl);
 
-        bt_num = findViewById(R.id.bt_num);
         tv_content = findViewById(R.id.tv_content);
-
-        Intent intentService = new Intent(this, AdditionService.class);
-        bindService(intentService, mConnection, Context.BIND_AUTO_CREATE);
-
+        bt_num = findViewById(R.id.bt_num);
         bt_num.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,8 +47,14 @@ public class AidlActivity extends AppCompatActivity {
                 }
             }
         });
+        //注册、绑定service
+        Intent intentService = new Intent(this, AdditionService.class);
+        bindService(intentService, mConnection, Context.BIND_AUTO_CREATE);
     }
 
+    /**
+     * 获取AIDL的service
+     */
     ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -60,10 +67,14 @@ public class AidlActivity extends AppCompatActivity {
         }
     };
 
+
+    /**
+     * 解绑
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mConnection!=null){
+        if (mConnection != null) {
             unbindService(mConnection);
         }
     }
