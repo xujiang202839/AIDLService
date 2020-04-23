@@ -1,4 +1,6 @@
 package com.hans.constraint;
+
+import android.Manifest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +11,11 @@ import android.view.ViewTreeObserver;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import io.reactivex.functions.Consumer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     };
     private View view_one;
 
+    private final String[] permissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_NETWORK_STATE};
+    private final RxPermissions rxPermissions = new RxPermissions(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +54,20 @@ public class MainActivity extends AppCompatActivity {
         //  setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         line_one = findViewById(R.id.line_one);
         line_six = findViewById(R.id.line_six);
-        measureOne();
         view_one = findViewById(R.id.view_one);
         handler.sendEmptyMessageDelayed(0, 500);
+
+        rxPermissions.request(permissions).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) throws Exception {
+                if (aBoolean) {
+                    Log.d("permission", "accept: 222222222");
+                    measureOne();
+                } else {
+                    Log.d("permission", "accept: 33333333333");
+                }
+            }
+        });
     }
 
     private void measureOne() {

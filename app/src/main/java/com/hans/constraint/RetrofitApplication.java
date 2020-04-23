@@ -3,6 +3,8 @@ package com.hans.constraint;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.multidex.MultiDex;
+
 /**
  * @创建者 xu
  * @创建时间 2020/3/24
@@ -23,7 +25,17 @@ public class RetrofitApplication extends Application {
         return application;
     }
 
-    public static Context getContext(){
-        return  application.getApplicationContext();
+    public static Context getContext() {
+        return application.getApplicationContext();
+    }
+
+    /**
+     * apk 安装
+     * @param base
+     */
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

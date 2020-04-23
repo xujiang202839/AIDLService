@@ -105,7 +105,6 @@ public class RetrofitManager {
                 .retryOnConnectionFailure(true);//错误重连  默认重试一次，若需要重试N次，则要实现拦截器。
 
         OkHttpClient client = builder.build();
-
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 //设置 Json 转换器 数据解析器
@@ -114,8 +113,6 @@ public class RetrofitManager {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)
                 .build();
-
-
         return retrofit;
     }
 }

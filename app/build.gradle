@@ -12,6 +12,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        allprojects {
+            repositories {
+                maven { url 'https://jitpack.io' }
+            }
+        }
     }
 
     buildTypes {
@@ -46,4 +52,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
     //引入rxandroid
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    //MultiDex 安装分包
+    implementation 'androidx.multidex:multidex:2.0.1'
+    //rxPermission
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 }
