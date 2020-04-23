@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBF8FB"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/base_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="数据统计"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_report_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintDimensionRatio="W,1:1.8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/base_title_bar" />
+
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="@id/ll_report_bg">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="租约到期统计"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="2019-10~2020-03"
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!--月份 tv_1-->
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="5dp"
+            android:text="10月"
+            android:textColor="@color/black_66"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/ll_report_bg"
+            app:layout_constraintLeft_toLeftOf="@id/ll_report_bg"
+            app:layout_constraintRight_toLeftOf="@id/tv_2" />
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11月"
+            android:textColor="@color/black_66"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/tv_1"
+            app:layout_constraintRight_toLeftOf="@id/tv_3"
+            app:layout_constraintTop_toTopOf="@id/tv_1" />
+
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12月"
+            android:textColor="@color/black_66"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/tv_2"
+            app:layout_constraintRight_toLeftOf="@id/tv_4"
+            app:layout_constraintTop_toTopOf="@id/tv_1" />
+
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01月"
+            android:textColor="@color/black_66"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/tv_3"
+            app:layout_constraintRight_toLeftOf="@id/tv_5"
+            app:layout_constraintTop_toTopOf="@id/tv_1" />
+
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02月"
+            android:textColor="@color/black_66"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/tv_4"
+            app:layout_constraintRight_toLeftOf="@id/tv_6"
+            app:layout_constraintTop_toTopOf="@id/tv_1" />
+
+        <TextView
+            android:id="@+id/tv_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03月"
+            android:textColor="@color/black_66"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/tv_5"
+            app:layout_constraintRight_toRightOf="@id/ll_report_bg"
+            app:layout_constraintTop_toTopOf="@id/tv_1" />
+
+        <!--y轴分端数  tv_one-->
+        <TextView
+            android:id="@+id/tv_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/black_66"
+            app:layout_constraintBottom_toTopOf="@id/tv_1"
+            app:layout_constraintRight_toRightOf="@id/tv_six"
+            app:layout_constraintTop_toBottomOf="@id/tv_two" />
+
+        <TextView
+            android:id="@+id/tv_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200"
+            android:textColor="@color/black_66"
+            app:layout_constraintBottom_toTopOf="@id/tv_one"
+            app:layout_constraintRight_toRightOf="@id/tv_six"
+            app:layout_constraintTop_toBottomOf="@id/tv_three" />
+
+        <TextView
+            android:id="@+id/tv_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="400"
+            android:textColor="@color/black_66"
+            app:layout_constraintBottom_toTopOf="@id/tv_two"
+            app:layout_constraintRight_toRightOf="@id/tv_six"
+            app:layout_constraintTop_toBottomOf="@id/tv_four" />
+
+        <TextView
+            android:id="@+id/tv_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="600"
+            android:textColor="@color/black_66"
+            app:layout_constraintBottom_toTopOf="@id/tv_three"
+            app:layout_constraintRight_toRightOf="@id/tv_six"
+            app:layout_constraintTop_toBottomOf="@id/tv_five" />
+
+        <TextView
+            android:id="@+id/tv_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="800"
+            android:textColor="@color/black_66"
+            app:layout_constraintBottom_toTopOf="@id/tv_four"
+            app:layout_constraintRight_toRightOf="@id/tv_six"
+            app:layout_constraintTop_toBottomOf="@id/tv_six" />
+
+        <TextView
+            android:id="@+id/tv_six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:text="1000"
+            android:textColor="@color/black_66"
+            app:layout_constraintBottom_toTopOf="@id/tv_five"
+            app:layout_constraintLeft_toLeftOf="@id/ll_report_bg"
+            app:layout_constraintTop_toBottomOf="@id/ll_title"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <!--线标  line_one-->
+        <View
+            android:id="@+id/line_one"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:background="@color/grey_dark"
+            app:layout_constraintBottom_toBottomOf="@id/tv_one"
+            app:layout_constraintLeft_toRightOf="@id/tv_one"
+            app:layout_constraintTop_toTopOf="@id/tv_one" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:background="@color/grey_dark"
+            app:layout_constraintBottom_toBottomOf="@id/tv_two"
+            app:layout_constraintLeft_toRightOf="@id/tv_two"
+            app:layout_constraintTop_toTopOf="@id/tv_two" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:background="@color/grey_dark"
+            app:layout_constraintBottom_toBottomOf="@id/tv_three"
+            app:layout_constraintLeft_toRightOf="@id/tv_three"
+            app:layout_constraintTop_toTopOf="@id/tv_three" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:background="@color/grey_dark"
+            app:layout_constraintBottom_toBottomOf="@id/tv_four"
+            app:layout_constraintLeft_toRightOf="@id/tv_four"
+            app:layout_constraintTop_toTopOf="@id/tv_four" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:background="@color/grey_dark"
+            app:layout_constraintBottom_toBottomOf="@id/tv_five"
+            app:layout_constraintLeft_toRightOf="@id/tv_five"
+            app:layout_constraintTop_toTopOf="@id/tv_five" />
+
+        <View
+            android:id="@+id/line_six"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:background="@color/grey_dark"
+            app:layout_constraintBottom_toBottomOf="@id/tv_six"
+            app:layout_constraintLeft_toRightOf="@id/tv_six"
+            app:layout_constraintTop_toTopOf="@id/tv_six" />
+
+        <!--进度背景-->
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/blue_dark"
+            app:layout_constraintBottom_toTopOf="@id/line_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_1"
+            app:layout_constraintRight_toRightOf="@id/tv_1"
+            app:layout_constraintTop_toBottomOf="@id/line_six" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/blue_dark"
+            app:layout_constraintBottom_toTopOf="@id/line_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_2"
+            app:layout_constraintRight_toRightOf="@id/tv_2"
+            app:layout_constraintTop_toBottomOf="@id/line_six" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/blue_dark"
+            app:layout_constraintBottom_toTopOf="@id/line_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_3"
+            app:layout_constraintRight_toRightOf="@id/tv_3"
+            app:layout_constraintTop_toBottomOf="@id/line_six" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/blue_dark"
+            app:layout_constraintBottom_toTopOf="@id/line_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_4"
+            app:layout_constraintRight_toRightOf="@id/tv_4"
+            app:layout_constraintTop_toBottomOf="@id/line_six" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/blue_dark"
+            app:layout_constraintBottom_toTopOf="@id/line_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_5"
+            app:layout_constraintRight_toRightOf="@id/tv_5"
+            app:layout_constraintTop_toBottomOf="@id/line_six" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@color/blue_dark"
+            app:layout_constraintBottom_toTopOf="@id/line_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_6"
+            app:layout_constraintRight_toRightOf="@id/tv_6"
+            app:layout_constraintTop_toBottomOf="@id/line_six" />
+
+        <!--进度数值-->
+        <View
+            android:id="@+id/view_one"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_text_bg"
+            app:layout_constraintBottom_toTopOf="@id/line_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_1"
+            app:layout_constraintRight_toRightOf="@id/tv_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_bg"
+            android:paddingHorizontal="3dp"
+            android:paddingVertical="2dp"
+            android:layout_marginBottom="5dp"
+            android:text="563"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/view_one"
+            app:layout_constraintLeft_toLeftOf="@id/tv_1"
+            app:layout_constraintRight_toRightOf="@id/tv_1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
