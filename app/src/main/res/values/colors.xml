@@ -10,4 +10,9 @@
     <color name="grey_dark">#F5F5F5</color><!--浅灰色 线-->
     <color name="blue_dark">#F5FAF8</color><!--浅蓝色 线-->
     <color name="blue_light">#BFE8EC</color><!--浅蓝色 线-->
+
+    <color name="blue_00A4BF">#00A4BF</color><!--蓝色 -->
+    <color name="grey_ad">#ADADAD</color><!--灰色 -->
+    <color name="grey_1">#1e000000</color><!--灰色 -->
+    <color name="transparent">#00000000</color><!--透明色 -->
 </resources>
