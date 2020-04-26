@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * @创建者 xu
  * @创建时间 2020/4/24
@@ -24,7 +27,8 @@ public abstract class BaseFragment extends Fragment {
     private BaseActivity mActivity;
 
     private final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
-    private View mContentView;
+    protected View mContentView;
+    private Unbinder unBinder;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -51,6 +55,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mContentView = inflater.inflate(getResId(), container, false);
+        unBinder = ButterKnife.bind(this, mContentView);
         return mContentView;
     }
 
@@ -62,10 +67,16 @@ public abstract class BaseFragment extends Fragment {
         initExtra(getArguments());
     }
 
+    protected void initExtra(Bundle arguments) {
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         doWork();
+    }
+
+    protected void doWork() {
     }
 
     @Override
@@ -83,13 +94,15 @@ public abstract class BaseFragment extends Fragment {
         super.onDestroyView();
     }
 
-    private <T extends View> T fd(@IdRes Integer id) {
+    @Override
+    public void onDestroy() {
+        if (unBinder != null) {
+            unBinder.unbind();
+        }
+        super.onDestroy();
+    }
+
+    protected <T extends View> T fd(@IdRes Integer id) {
         return mContentView.findViewById(id);
-    }
-
-    protected void doWork() {
-    }
-
-    protected void initExtra(Bundle arguments) {
     }
 }
