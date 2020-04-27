@@ -11,6 +11,7 @@ import com.blankj.utilcode.util.FragmentUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hans.constraint.base.BaseActivity;
 import com.hans.constraint.fragment.MainFragment;
+import com.hans.constraint.fragment.PersonalFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +50,9 @@ public class BottomNavActivity extends BaseActivity {
         fragmentNav.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         //添加
         mFragments.add(new MainFragment("首页"));
-        mFragments.add(new MainFragment("View"));
-        mFragments.add(new MainFragment("自定义"));
-        mFragments.add(new MainFragment("我的"));
+        mFragments.add(new PersonalFragment("View"));
+        mFragments.add(new PersonalFragment("自定义"));
+        mFragments.add(new PersonalFragment("我的"));
         FragmentUtils.add(getSupportFragmentManager(), mFragments, R.id.fragmentContainer, currIndex);
         switch (currIndex) {
             case 1:
@@ -71,7 +72,7 @@ public class BottomNavActivity extends BaseActivity {
 
     @Override
     protected void initStatus(int transparent, boolean isLight) {
-        super.initStatus(R.color.grey_1, true);
+        super.initStatus(R.color.transparent, true);
     }
 
     BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {

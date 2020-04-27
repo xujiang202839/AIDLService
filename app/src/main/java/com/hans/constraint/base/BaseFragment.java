@@ -2,6 +2,7 @@ package com.hans.constraint.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ public abstract class BaseFragment extends Fragment {
     //Activity 同意继承 BaseActivity
     private BaseActivity mActivity;
 
+    private final String TAG = getClass().getSimpleName();
+
     private final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
     protected View mContentView;
     private Unbinder unBinder;
@@ -40,6 +43,7 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null) {
+            Log.d(TAG, "onCreate1");
             boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             if (isSupportHidden == true) {
@@ -49,6 +53,7 @@ public abstract class BaseFragment extends Fragment {
             }
             fragmentTransaction.commitAllowingStateLoss();
         }
+        Log.d(TAG, "onCreate2");
     }
 
     @Nullable

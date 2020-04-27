@@ -27,6 +27,12 @@ android {
         }
     }
 
+    /*将版本设置为1.8，否则进行跳转时ButterKnife会报错*/
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
 }
 
 dependencies {
@@ -52,18 +58,33 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
     //引入rxandroid
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
     //MultiDex 安装分包
     implementation 'androidx.multidex:multidex:2.0.1'
+
     //rxPermission
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
     //图片加载glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+
     //底部导航栏
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.2'
+
     //各种工具类 状态栏改变
     implementation 'com.blankj:utilcodex:1.25.9'
 
     //butterKnife
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    //获取图片颜色值来修改状态栏颜色
+    implementation 'androidx.palette:palette:1.0.0'
+
+    //添加lombok依赖
+    implementation 'org.projectlombok:lombok:1.16.8'
+    annotationProcessor "org.projectlombok:lombok:1.16.8"
+    //java注解
+    implementation 'org.glassfish:javax.annotation:10.0-b28'
+
 }

@@ -2,10 +2,12 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        <!-- 标题栏字体颜色 -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- 状态栏底色-->
         <item name="colorPrimaryDark">@color/transparent</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:windowBackground">@color/grey_1</item>-->
     </style>
 
 </resources>

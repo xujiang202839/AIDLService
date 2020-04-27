@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义标题栏-->
+    <declare-styleable name="BaseTitleBarView">
+        <attr name="barTitle" format="string" />
+        <attr name="barText" format="string" />
+        <attr name="barTextColor" format="color" />
+        <attr name="barButton" format="reference" />
+        <attr name="barBack" format="boolean" />
+    </declare-styleable>
+
+
+</resources>

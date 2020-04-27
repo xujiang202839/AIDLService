@@ -3,9 +3,11 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
     <color name="red">#ff0000</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="black_33">#333333</color>
     <color name="black_66">#666666</color>
     <color name="grey_dark">#F5F5F5</color><!--浅灰色 线-->
     <color name="blue_dark">#F5FAF8</color><!--浅蓝色 线-->
