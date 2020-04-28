@@ -72,7 +72,7 @@ public class BottomNavActivity extends BaseActivity {
 
     @Override
     protected void initStatus(int transparent, boolean isLight) {
-        super.initStatus(R.color.transparent, true);
+        super.initStatus(R.color.white, true);
     }
 
     BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {

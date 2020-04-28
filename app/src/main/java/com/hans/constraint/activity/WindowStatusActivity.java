@@ -50,7 +50,7 @@ public class WindowStatusActivity extends BaseActivity {
                     // 将颜色设置给相应的组件
                     //getActivity().getActionBar().setBackgroundDrawable(new ColorDrawable(rgb));
                     btColor.setText(color + "");
-                    getWindow().setStatusBarColor(color);
+                    getWindow().setStatusBarColor(getResources().getColor(R.color.blue_00A4BF));
                 }
             }
         });
