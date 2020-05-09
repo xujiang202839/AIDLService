@@ -28,6 +28,7 @@ public class RetrofitManager {
     private static final String CACHE_NAME = "retrofit_cache";
 
     private static Retrofit retrofit = null;
+    private static volatile OkHttpClient sOkHttpClient;
 
     /**
      * baseUrl
@@ -47,6 +48,23 @@ public class RetrofitManager {
         }
     }
 
+    private static OkHttpClient getOkHttpClient() {
+        if (sOkHttpClient == null) {
+            synchronized (RetrofitManager.class) {
+                if (sOkHttpClient == null) {
+                    sOkHttpClient = new OkHttpClient.Builder()
+                            .addInterceptor(new CacheInterceptor())
+                            .connectTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)//设置超时
+                            .readTimeout(READ_TIME_OUT, TimeUnit.SECONDS)
+                            .writeTimeout(WRITE_TIME_OUT, TimeUnit.SECONDS)
+                            .retryOnConnectionFailure(true)
+                            .build();
+                }
+            }
+        }
+        return sOkHttpClient;
+    }
+
     private static Retrofit create() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         // log用拦截器
@@ -62,42 +80,8 @@ public class RetrofitManager {
         File cacheFile = new File(RetrofitApplication.getContext().getExternalCacheDir(), CACHE_NAME);
         //生成缓存，20M
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 20);
-        //缓存拦截器
-        Interceptor cacheInterceptor = new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                //网络不可用
-                if (!NetworkUtils.isAvailable(RetrofitApplication.getContext())) {
-                    //在请求头中加入：强制使用缓存，不访问网络
-                    request = request.newBuilder()
-                            .cacheControl(CacheControl.FORCE_CACHE)
-                            .build();
-                }
-                Response response = chain.proceed(request);
-                //网络可用
-                if (NetworkUtils.isAvailable(RetrofitApplication.getContext())) {
-                    int maxAge = 0;
-                    // 有网络时 在响应头中加入：设置缓存超时时间0个小时
-                    response.newBuilder()
-                            .header("Cache-Control", "public, max-age=" + maxAge)
-                            .removeHeader("pragma")
-                            .build();
-                } else {
-                    // 无网络时，在响应头中加入：设置超时为2天
-                    int maxStale = 60 * 60 * 24 * 2;
-                    response.newBuilder()
-                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                            .removeHeader("pragma")
-                            .build();
-                }
-                return response;
-            }
-        };
-
-
         builder.addInterceptor(loggingInterceptor)
-                .addInterceptor(cacheInterceptor)
+                .addInterceptor(new CacheInterceptor())
                 .cache(cache)
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)//设置超时
                 .readTimeout(READ_TIME_OUT, TimeUnit.SECONDS)

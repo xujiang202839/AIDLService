@@ -9,10 +9,24 @@
     tools:context=".activity.WindowStatusActivity">
 
     <Button
-        android:layout_marginTop="60dp"
         android:id="@+id/bt_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="颜色值" />
 
+    <com.hans.constraint.View.LineTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="设置背景框"
+        android:textColor="@color/black_33"
+        android:textSize="16sp" />
+
+    <com.hans.constraint.View.FlowViewGroup
+        android:id="@+id/group"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="10dp"/>
 </LinearLayout>
