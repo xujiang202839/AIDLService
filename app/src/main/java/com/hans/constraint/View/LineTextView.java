@@ -73,18 +73,17 @@ public class LineTextView extends androidx.appcompat.widget.AppCompatTextView {
         //获取测量模式
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-
         //获取测量模式
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-      //  Log.d("onMeasure", widthSize + "==" + heightSize);
+        //Log.d("onMeasure", widthSize + "==" + heightSize);
 
 
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
 
-        setMeasuredDimension(400,300);
-       // Log.d("onMeasure", measuredWidth + "==" + measuredHeight);
+        setMeasuredDimension(400, 300);
+        // Log.d("onMeasure", measuredWidth + "==" + measuredHeight);
     }
 
     //重写draw方法，绘制我们需要的中间线以及背景
@@ -93,7 +92,7 @@ public class LineTextView extends androidx.appcompat.widget.AppCompatTextView {
         int width = getWidth();
         int height = getHeight();
 
-       // Log.d("onMeasure", getLeft() + "==" + getTop() + "==" + getRight() + "==" + getBottom());
+        // Log.d("onMeasure", getLeft() + "==" + getTop() + "==" + getRight() + "==" + getBottom());
 
         //绘制方形背景
         mRect.set(0, 0, width, height);

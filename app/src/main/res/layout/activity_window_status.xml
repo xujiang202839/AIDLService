@@ -29,4 +29,26 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="5dp"
         android:paddingVertical="10dp"/>
+
+    <com.hans.constraint.View.HorizontalView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="@color/blue_light"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:background="@color/red"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"/>
+    </com.hans.constraint.View.HorizontalView>
 </LinearLayout>

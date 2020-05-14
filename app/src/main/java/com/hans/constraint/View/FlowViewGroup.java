@@ -66,6 +66,7 @@ public class FlowViewGroup extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         lines.clear();
         //自身的padding
         paddingLeft = getPaddingLeft();

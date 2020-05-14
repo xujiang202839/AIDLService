@@ -87,4 +87,6 @@ dependencies {
     //java注解
     implementation 'org.glassfish:javax.annotation:10.0-b28'
 
+    //屏幕适配方案
+    implementation 'me.jessyan:autosize:1.2.1'
 }

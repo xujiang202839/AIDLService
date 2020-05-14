@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!--<include domain=["file" | "database" | "sharedpref" | "external" | "root"]  path="string" />
+    <exclude domain=["file" | "database" | "sharedpref" | "external" | "root"] path="string" />
+    <exclude domain="database" path="device_info.db"/>-->
+
+    <exclude domain="database" path="device_info.db"/>
+</full-backup-content>
