@@ -46,8 +46,6 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
 
     @Override
     protected void initExtra(Bundle arguments) {
-        //测试分支
-        //测试分支2
         if (arguments != null) {
             title = arguments.getString("title");
         }
