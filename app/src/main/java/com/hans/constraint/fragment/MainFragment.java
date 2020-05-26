@@ -9,6 +9,8 @@ import android.widget.GridView;
 import com.blankj.utilcode.util.ToastUtils;
 import com.hans.constraint.R;
 import com.hans.constraint.activity.AnimationActivity;
+import com.hans.constraint.activity.HandlerActivity;
+import com.hans.constraint.activity.ThreadActivity;
 import com.hans.constraint.activity.WindowStatusActivity;
 import com.hans.constraint.adapter.baselistadapter.HelperAdapter;
 import com.hans.constraint.adapter.baselistadapter.HelperViewHolder;
@@ -57,6 +59,8 @@ public class MainFragment extends BaseFragment implements AdapterView.OnItemClic
     protected void doWork() {
         itemList.add(new MainItem("获取图片颜色值", WindowStatusActivity.class));
         itemList.add(new MainItem("动画", AnimationActivity.class));
+        itemList.add(new MainItem("Handler", HandlerActivity.class));
+        itemList.add(new MainItem("thread", ThreadActivity.class));
         gridView.setAdapter(new HelperAdapter<MainItem>(getContext(), itemList, R.layout.item_mian_grid) {
             @Override
             public void HelpConvert(HelperViewHolder viewHolder, int position, MainItem mainItem) {

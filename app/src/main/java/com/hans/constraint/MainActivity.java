@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         view_one = findViewById(R.id.view_one);
         handler.sendEmptyMessageDelayed(0, 500);
 
-        rxPermissions.request(permissions).subscribe(new Consumer<Boolean>() {
+        Disposable subscribe = rxPermissions.request(permissions).subscribe(new Consumer<Boolean>() {
             @Override
             public void accept(Boolean aBoolean) throws Exception {
                 if (aBoolean) {
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     private void measureOne() {
