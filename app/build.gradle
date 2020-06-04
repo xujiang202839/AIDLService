@@ -82,11 +82,13 @@ dependencies {
     implementation 'androidx.palette:palette:1.0.0'
 
     //添加lombok依赖
-    implementation 'org.projectlombok:lombok:1.16.8'
+    annotationProcessor 'org.projectlombok:lombok:1.16.8'
     annotationProcessor "org.projectlombok:lombok:1.16.8"
     //java注解
     implementation 'org.glassfish:javax.annotation:10.0-b28'
 
     //屏幕适配方案
     implementation 'me.jessyan:autosize:1.2.1'
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
 }

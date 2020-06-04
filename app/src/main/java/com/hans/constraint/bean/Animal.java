@@ -17,6 +17,10 @@ public class Animal extends  Animals{
 
     private int id;
 
+    static {
+
+    }
+
     Animal(String name, int age) {
         super(name, age);
 

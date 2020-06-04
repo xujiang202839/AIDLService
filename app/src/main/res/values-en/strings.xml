@@ -1,0 +1,4 @@
+<resources>
+    <string name="fragment_two">go</string>
+    <string name="setting_language_auto">Follow System</string>
+</resources>

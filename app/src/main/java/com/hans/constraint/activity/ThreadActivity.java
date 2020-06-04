@@ -7,6 +7,10 @@ import android.os.Bundle;
 import com.hans.constraint.R;
 import com.hans.constraint.base.BaseActivity;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class ThreadActivity extends BaseActivity {
 
     @Override
@@ -25,8 +29,8 @@ public class ThreadActivity extends BaseActivity {
         ThreadDemo T1 = new ThreadDemo("Thread-1");
         T1.start();
 
-        ThreadDemo T2 = new ThreadDemo("Thread-2");
-        T2.start();
+        /*ThreadDemo T2 = new ThreadDemo("Thread-2");
+        T2.start();*/
     }
 
     class RunnableDemo implements Runnable {

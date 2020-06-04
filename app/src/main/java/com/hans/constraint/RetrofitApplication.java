@@ -5,6 +5,8 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
+import com.hans.constraint.utils.MultiLanguageUtil;
+
 /**
  * @创建者 xu
  * @创建时间 2020/3/24
@@ -19,6 +21,7 @@ public class RetrofitApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+        MultiLanguageUtil.init(application.getApplicationContext());
     }
 
     private RetrofitApplication getApplication() {

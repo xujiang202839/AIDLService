@@ -1,8 +1,9 @@
+<?xml version = "1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Constraint</string>
-
     <string name="fragment_zero">首页</string>
     <string name="fragment_one">View</string>
     <string name="fragment_two">自定义</string>
     <string name="fragment_three">我的</string>
+    <string name="setting_language_auto">跟随系统</string>
 </resources>

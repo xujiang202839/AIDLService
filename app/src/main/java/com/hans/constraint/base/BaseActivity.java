@@ -12,8 +12,10 @@ import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ColorUtils;
 import com.hans.constraint.R;
 import com.hans.constraint.View.GrayFrameLayout;
+import com.hans.constraint.utils.MultiLanguageUtil;
 
 import butterknife.ButterKnife;
+
 
 /**
  * @创建者 xu
@@ -88,5 +90,10 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return
      */
     protected abstract int getResId();
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(MultiLanguageUtil.attachBaseContext(newBase));
+    }
 
 }
